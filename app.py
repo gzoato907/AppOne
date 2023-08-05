@@ -1,1 +1,17 @@
-import Pandas
+import pandas as pd
+from tabulate import tabulate
+
+# Replace 'your_file.csv' with the actual CSV file path
+file_path = 'c:\Data\data2.csv'
+
+# Replace 'index_column_name' with the name of the column you want to set as the index
+index_column_name = 'ID'
+
+# Read the CSV file into a pandas DataFrame and set the specified column as the index
+df = pd.read_csv(file_path, index_col=index_column_name)
+
+# Convert the DataFrame to a tabular format with left-aligned columns
+table = tabulate(df, headers='keys', tablefmt='simple', colalign=("left",))
+
+# Print the tabulated table
+print(table)
