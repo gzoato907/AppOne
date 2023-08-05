@@ -10,8 +10,13 @@ index_column_name = 'ID'
 # Read the CSV file into a pandas DataFrame and set the specified column as the index
 df = pd.read_csv(file_path, index_col=index_column_name)
 
+num_rows, num_columns = df.shape
+
 # Convert the DataFrame to a tabular format with left-aligned columns
-table = tabulate(df, headers='keys', tablefmt='simple', colalign=("left",))
+table = tabulate(df, headers='keys', tablefmt='pipe', colalign=("left",))
+
+metadata = f"File Metadata: Rows={num_rows}, Columns={num_columns}\n"
 
 # Print the tabulated table
+print(metadata)
 print(table)
